@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         SetCountText();
-        if(countdown >= 1)
+        if(countdown >= 0)
         {
             countdown -= Time.deltaTime;
             count = (int)countdown;
