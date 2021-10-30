@@ -13,6 +13,10 @@ public class PlayerController : MonoBehaviour
     public Text ClearText;  //クリアテキスト
     public GameObject Item; //アイテム
 
+    //カウントダウン
+    float countdown = 4.0f;
+    int count;
+
     void Start()
     {
         score = 0;
@@ -23,6 +27,17 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         SetCountText();
+        if(countdown >= 1)
+        {
+            countdown -= Time.deltaTime;
+            count = (int)countdown;
+            rb.velocity = Vector3.zero;
+            rb.isKinematic = true;
+        }
+        else
+        {
+            rb.isKinematic = false;
+        }
     }
 
     void FixedUpdate()

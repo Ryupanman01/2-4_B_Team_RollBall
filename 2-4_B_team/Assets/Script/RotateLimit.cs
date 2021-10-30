@@ -28,6 +28,25 @@ public class RotateLimit : MonoBehaviour
     [Tooltip("加速")]
     float kasoku; //test1
 
+
+    //カウントダウン
+    float countdown = 4.0f;
+    int count;
+
+
+    private void Update()
+    {
+        if (countdown >= 1)
+        {
+            countdown -= Time.deltaTime;
+            count = (int)countdown;
+        }
+        else
+        {
+
+        }
+    }
+
     void FixedUpdate()
     {
         // 左右キーの入力を取得
