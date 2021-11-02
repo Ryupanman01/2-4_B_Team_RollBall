@@ -71,9 +71,11 @@ public class PlayerController : MonoBehaviour
         ScoreText.text = score.ToString() + " / 12";
 
         //すべての収集アイテムを獲得した場合
-        if(score >= 12)
+        if(score == 12)
         {
             Time.timeScale = 0f;
+            Application.targetFrameRate = 60;
+            Debug.Log("クリアテキストのFPS：" + Application.targetFrameRate);
             ClearText.text = "GAME CLEAR";
         }
     }
