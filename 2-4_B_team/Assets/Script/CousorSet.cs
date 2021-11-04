@@ -9,6 +9,9 @@ public class CousorSet : MonoBehaviour
     int Pos = 1;
     public int nummenu;
     public float linewidth;
+
+    float lastTimeStickDown_ = 0f;
+
     // Use this for initialization
     void Start()
     {
@@ -17,38 +20,44 @@ public class CousorSet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        //if (Input.GetKeyDown("down") && Pos != nummenu)
-        if (Input.GetAxisRaw("Vertical") < 0 && Pos != nummenu)
+        if (Time.unscaledTime - lastTimeStickDown_ > 0.25f)
         {
-            Vector3 tmp = this.transform.position;
-            this.transform.position = new Vector3(tmp.x, tmp.y - linewidth, tmp.z);
-            Pos += 1;
-        }
-        else if (Input.GetAxisRaw("Vertical") > 0 && Pos != 1)
-        {
-            Vector3 tmp = this.transform.position;
-            this.transform.position = new Vector3(tmp.x, tmp.y + linewidth, tmp.z);
-            Pos -= 1;
-        }
-        else if (Input.GetKeyDown("joystick button 1"))
-        {
-            function();
+            float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
+            //if (Input.GetKeyDown("down") && Pos != nummenu)
+            if (Input.GetAxisRaw("Vertical") < 0 && Pos != nummenu)
+            {
+                Vector3 tmp = this.transform.position;
+                this.transform.position = new Vector3(tmp.x, tmp.y - linewidth, tmp.z);
+                Pos += 1;
+                lastTimeStickDown_ = Time.unscaledTime;
+            }
+            else if (Input.GetAxisRaw("Vertical") > 0 && Pos != 1)
+            {
+                Vector3 tmp = this.transform.position;
+                this.transform.position = new Vector3(tmp.x, tmp.y + linewidth, tmp.z);
+                Pos -= 1;
+                lastTimeStickDown_ = Time.unscaledTime;
+            }
+            else if (Input.GetKeyDown("joystick button 0"))
+            {
+                function();
+            }
         }
     }
     void function()
     {
         if (Pos == 1)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
             Time.timeScale = 1f;
         }
         else if (Pos == 2)
         {
-
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("TitleScene");
         }
-        else if(Pos == 3)
+        else if (Pos == 3)
         {
             Quit();
         }

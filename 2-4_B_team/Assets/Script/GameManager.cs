@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public int pause;
     public int MenuSelect = 0;
-    [SerializeField]GameObject PausePanel;
+    [SerializeField] GameObject PausePanel;
 
     [SerializeField]
     //　ポーズした時に表示するUIのプレハブ
@@ -47,15 +47,15 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("joystick button 9"))
+        if (Input.GetKeyDown("joystick button 7"))
         {
-            if (pause==0)
+            if (pause == 0)
             {
                 PausePanel.SetActive(true);
                 pause = 1;
 
                 Time.timeScale = 0f;
-                
+
             }
             else
             {
