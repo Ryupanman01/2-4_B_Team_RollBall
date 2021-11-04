@@ -12,7 +12,9 @@ public class PlayerController : MonoBehaviour
     public Text ScoreText;  //スコアテキスト
     public Text ClearText;  //クリアテキスト
     public GameObject Item; //アイテム
+    public ParticleSystem explode; //エフェクト
 
+    public ParticleSystem confech;
     //カウントダウン
     float countdown = 4.0f;
     int count;
@@ -22,6 +24,8 @@ public class PlayerController : MonoBehaviour
         score = 0;
         ClearText.text = "";
         rb = GetComponent<Rigidbody>();
+
+        confech.enableEmission = false;
     }
 
     void Update()
@@ -50,12 +54,16 @@ public class PlayerController : MonoBehaviour
         //衝突した相手にPlayerタグがついているとき
         if (collision.gameObject.CompareTag("Item"))
         {
+            //エフェクト追加
+            explode.transform.position = transform.position;
             //その収集アイテムを非表示にする
             collision.gameObject.SetActive(false);
             //スコアを加算する
             score = score + 1;
             //ログ表示
             Debug.Log("当たった");
+            //エフェクト再生
+            explode.Play();
         }
         //衝突した相手にWallタグが付いているとき
         if (collision.gameObject.tag == "Wall")
@@ -76,6 +84,7 @@ public class PlayerController : MonoBehaviour
             Time.timeScale = 0f;
             Application.targetFrameRate = 60;
             Debug.Log("クリアテキストのFPS：" + Application.targetFrameRate);
+            confech.enableEmission = true;
             ClearText.text = "GAME CLEAR";
         }
     }
