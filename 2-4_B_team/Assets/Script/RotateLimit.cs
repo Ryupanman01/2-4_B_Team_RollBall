@@ -31,20 +31,10 @@ public class RotateLimit : MonoBehaviour
 
     //カウントダウン
     float countdown = 4.0f;
-    int count;
 
 
     private void Update()
     {
-        if (countdown >= 1)
-        {
-            countdown -= Time.deltaTime;
-            count = (int)countdown;
-        }
-        else
-        {
-
-        }
     }
 
     void FixedUpdate()
@@ -84,53 +74,60 @@ public class RotateLimit : MonoBehaviour
 
         step = speed * Time.deltaTime;
 
-        if (Input.GetAxis("Vertical") > 0)  //上入力
+        if (countdown >= 0)
         {
-            speed += 1.0f;                  //スピード＋１
-            if (floorXAngle < 30f)          //30度まで傾く
-            {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(40f * vertical, 0, 0), step);//加速し減速
-            }
-        }
-        else if (Input.GetAxis("Vertical") < 0) //下入力
-        {
-            if (floorXAngle > -30f)             //30度まで傾く
-            {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(-40f * -vertical, 0, 0), step);//加速し減速
-            }
+            countdown -= Time.deltaTime;
         }
         else
         {
-            if (floorXAngle > 0 || floorXAngle < 0)     //入力がないかつ傾いているとき
+            if (Input.GetAxis("Vertical") > 0)  //上入力
             {
-                speed = 0.6f;                             //スピードを1に戻す
-                transform.Rotate(floorXAngle / -30f, 0f, 0f);   //減速しながら傾きを0度にする
-                //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(floorXAngle / 8f, 0, 0), step);
+                speed += 1.0f;                  //スピード＋１
+                if (floorXAngle < 30f)          //30度まで傾く
+                {
+                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(40f * vertical, 0, 0), step);//加速し減速
+                }
             }
-        }
+            else if (Input.GetAxis("Vertical") < 0) //下入力
+            {
+                if (floorXAngle > -30f)             //30度まで傾く
+                {
+                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(-40f * -vertical, 0, 0), step);//加速し減速
+                }
+            }
+            else
+            {
+                if (floorXAngle > 0 || floorXAngle < 0)     //入力がないかつ傾いているとき
+                {
+                    speed = 0.6f;                             //スピードを1に戻す
+                    transform.Rotate(floorXAngle / -30f, 0f, 0f);   //減速しながら傾きを0度にする
+                                                                    //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(floorXAngle / 8f, 0, 0), step);
+                }
+            }
 
-        if (Input.GetAxis("Horizontal") < 0)
-        {
+            if (Input.GetAxis("Horizontal") < 0)
+            {
 
-            speed += 1.0f;
-            if (floorZAngle < 30f)
-            {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, 40f * -horizontal), step);
+                speed += 1.0f;
+                if (floorZAngle < 30f)
+                {
+                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, 40f * -horizontal), step);
+                }
             }
-        }
-        else if (Input.GetAxis("Horizontal") > 0)
-        {
-            if (floorZAngle > -30f)
+            else if (Input.GetAxis("Horizontal") > 0)
             {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, -40f * horizontal), step);
+                if (floorZAngle > -30f)
+                {
+                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, -40f * horizontal), step);
+                }
             }
-        }
-        else
-        {
-            if (floorZAngle > 0 || floorZAngle < 0)
+            else
             {
-                speed = 0.6f;
-                transform.Rotate(0f, 0f, floorZAngle / -30f);
+                if (floorZAngle > 0 || floorZAngle < 0)
+                {
+                    speed = 0.6f;
+                    transform.Rotate(0f, 0f, floorZAngle / -30f);
+                }
             }
         }
 
