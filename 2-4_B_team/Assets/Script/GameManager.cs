@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     public Text textGameEnd;
     */
 
+    //カウントダウン
+    float countdown = 4.0f;
+
     void Start()
     {
         PausePanel.SetActive(false);
@@ -47,21 +50,28 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("joystick button 7"))
+        if (countdown >= 0)
         {
-            if (pause == 0)
+            countdown -= Time.deltaTime;
+        }
+        else
+        {
+            if (Input.GetKeyDown("joystick button 7"))
             {
-                PausePanel.SetActive(true);
-                pause = 1;
+                if (pause == 0)
+                {
+                    PausePanel.SetActive(true);
+                    pause = 1;
 
-                Time.timeScale = 0f;
+                    Time.timeScale = 0f;
 
-            }
-            else
-            {
-                PausePanel.SetActive(false);
-                pause = 0;
-                Time.timeScale = 1f;
+                }
+                else
+                {
+                    PausePanel.SetActive(false);
+                    pause = 0;
+                    Time.timeScale = 1f;
+                }
             }
         }
     }
