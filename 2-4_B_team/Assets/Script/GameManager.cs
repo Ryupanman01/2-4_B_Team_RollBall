@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-public class GameManager : MonoBehaviour
+public class GameManager : PlayerController
 {
     public int pause;
     public int MenuSelect = 0;
@@ -56,21 +56,27 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown("joystick button 7"))
-            {
-                if (pause == 0)
+            if(score < 12) {
+                if (Input.GetKeyDown("joystick button 7"))
                 {
-                    PausePanel.SetActive(true);
-                    pause = 1;
+                    if (pause == 0)
+                    {
+                        PausePanel.SetActive(true);
+                        pause = 1;
 
-                    Time.timeScale = 0f;
+                        Time.timeScale = 0f;
 
+                    }
+                    else
+                    {
+                        PausePanel.SetActive(false);
+                        pause = 0;
+                        Time.timeScale = 1f;
+                    }
                 }
                 else
                 {
-                    PausePanel.SetActive(false);
-                    pause = 0;
-                    Time.timeScale = 1f;
+                    ;
                 }
             }
         }

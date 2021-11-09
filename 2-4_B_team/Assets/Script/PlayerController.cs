@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    private int score;   //スコア
+    public static int score;   //スコア
     private Vector3 lastvelocity;
     private Rigidbody rb;
 
