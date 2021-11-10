@@ -10,7 +10,6 @@ public class GameManager : PlayerController
     public int pause;
     public int MenuSelect = 0;
     [SerializeField] GameObject PausePanel;
-
     [SerializeField]
     //　ポーズした時に表示するUIのプレハブ
     private GameObject pauseUIPrefab;
@@ -29,6 +28,7 @@ public class GameManager : PlayerController
     void Start()
     {
         PausePanel.SetActive(false);
+
         /*
         textPause.enabled = false;
         textReStart.enabled = false;
