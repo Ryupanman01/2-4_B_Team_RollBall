@@ -9,10 +9,20 @@ public class PlayerController : MonoBehaviour
     private Vector3 lastvelocity;
     private Rigidbody rb;
 
+    private int re = 0;
+    private int minute;
+    private float second;
+
+    public Text ResultCoin;
+    public Text ResultTime;
+
     public Text ScoreText;  //スコアテキスト
     public Text ClearText;  //クリアテキスト
     public GameObject Item; //アイテム
     public ParticleSystem explode; //エフェクト
+
+    [SerializeField] GameObject ResultPanel;
+    [SerializeField] GameObject ReTryPanel;
 
     public ParticleSystem confech;
     //カウントダウン
@@ -25,13 +35,18 @@ public class PlayerController : MonoBehaviour
         ClearText.text = "";
         rb = GetComponent<Rigidbody>();
 
+        minute = 0;
+        second = 0f;
+
         confech.enableEmission = false;
+        ResultPanel.SetActive(false);
+        ReTryPanel.SetActive(false);
     }
 
     void Update()
     {
         SetCountText();
-        if(countdown >= 0)
+        if (countdown >= 0)
         {
             countdown -= Time.deltaTime;
             count = (int)countdown;
@@ -40,6 +55,13 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            second += Time.deltaTime;
+            if (second >= 60f)
+            {
+                minute++;
+                second = second - 60;
+            }
+
             rb.isKinematic = false;
         }
     }
@@ -79,13 +101,41 @@ public class PlayerController : MonoBehaviour
         ScoreText.text = score.ToString() + " / 12";
 
         //すべての収集アイテムを獲得した場合
-        if(score == 12)
+        if (score == 12)
         {
             Time.timeScale = 0f;
             Application.targetFrameRate = 60;
             Debug.Log("クリアテキストのFPS：" + Application.targetFrameRate);
             confech.enableEmission = true;
             ClearText.text = "GAME CLEAR";
+            if (re == 0)
+            {
+                re += 1;
+                StartCoroutine(ResultSet());
+            }
+            if (Input.GetKeyDown("joystick button 0"))
+            {
+                ResultPanel.SetActive(false);
+                StopCoroutine(ResultSet());
+                ReTryPanel.SetActive(true);
+                if (Input.GetKeyDown("joystick button 0"))
+                {
+                    ReTryPanel.SetActive(true);
+                }
+            }
         }
     }
+
+    private IEnumerator ResultSet()
+    {
+
+        ResultCoin.text = "取得したコイン　" + score.ToString() + "枚";
+        ResultTime.text = "かかった時間　" + minute.ToString() + ":" + second.ToString("00");
+        // 3秒間待つ
+        yield return new WaitForSecondsRealtime(1);
+
+        ResultPanel.SetActive(true);
+    }
 }
+
+
