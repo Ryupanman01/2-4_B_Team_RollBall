@@ -11,13 +11,19 @@ public class Timer : MonoBehaviour
     float countdown = 4.0f;
     int count;
 
+    //SE
+    public AudioClip sound;
+    AudioSource audioSource;
+
     private void Start()
     {
-        
+        //Componentを取得
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
+        audioSource.PlayOneShot(sound);
         //1秒以上なら
         if(countdown >= 1)
         {

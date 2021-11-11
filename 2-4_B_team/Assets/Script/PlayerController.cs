@@ -126,12 +126,12 @@ public class PlayerController : MonoBehaviour
                 ResultPanel.SetActive(false);
                 StopCoroutine(ResultSet());
                 ReTryPanel.SetActive(true);
-                if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown("joystick button 2"))
-                {
-                    //音(sound1)を鳴らす
-                    audioSource.PlayOneShot(sound1);
-                    ReTryPanel.SetActive(true);
-                }
+                //if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown("joystick button 2"))
+                //{
+                //    //音(sound1)を鳴らす
+                //    audioSource.PlayOneShot(sound1);
+                //    ReTryPanel.SetActive(true);
+                //}
             }
         }
     }

@@ -12,6 +12,7 @@ public class CousorSet : MonoBehaviour
 
     //SE
     public AudioClip sound1;
+    public AudioClip sound2;
     AudioSource audioSource;
 
     float lastTimeStickDown_ = 0f;
@@ -50,12 +51,15 @@ public class CousorSet : MonoBehaviour
             }
             else if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown("joystick button 2"))
             {
+                Debug.Log("音を鳴らしたよ");
+                audioSource.PlayOneShot(sound2);
                 function();
             }
         }
     }
     void function()
     {
+        //audioSource.PlayOneShot(sound2);
         if (Pos == 1)
         {
             
