@@ -10,12 +10,17 @@ public class CousorSet : MonoBehaviour
     public int nummenu;
     public float linewidth;
 
+    //SE
+    public AudioClip sound1;
+    AudioSource audioSource;
+
     float lastTimeStickDown_ = 0f;
 
     // Use this for initialization
     void Start()
     {
-
+        //Componentを取得
+        audioSource = GetComponent<AudioSource>();
     }
     // Update is called once per frame
     void Update()
@@ -27,6 +32,8 @@ public class CousorSet : MonoBehaviour
             //if (Input.GetKeyDown("down") && Pos != nummenu)
             if (Input.GetAxisRaw("Vertical") < 0 && Pos != nummenu)
             {
+                //音(sound1)を鳴らす
+                audioSource.PlayOneShot(sound1);
                 Vector3 tmp = this.transform.position;
                 this.transform.position = new Vector3(tmp.x, tmp.y - linewidth, tmp.z);
                 Pos += 1;
@@ -34,12 +41,14 @@ public class CousorSet : MonoBehaviour
             }
             else if (Input.GetAxisRaw("Vertical") > 0 && Pos != 1)
             {
+                //音(sound1)を鳴らす
+                audioSource.PlayOneShot(sound1);
                 Vector3 tmp = this.transform.position;
                 this.transform.position = new Vector3(tmp.x, tmp.y + linewidth, tmp.z);
                 Pos -= 1;
                 lastTimeStickDown_ = Time.unscaledTime;
             }
-            else if (Input.GetKeyDown("joystick button 0"))
+            else if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown("joystick button 2"))
             {
                 function();
             }
@@ -49,6 +58,7 @@ public class CousorSet : MonoBehaviour
     {
         if (Pos == 1)
         {
+            
             SceneManager.LoadScene(1);
             Time.timeScale = 1f;
         }
@@ -70,6 +80,5 @@ public class CousorSet : MonoBehaviour
       UnityEngine.Application.Quit();
 #endif
         }
-
     }
 }

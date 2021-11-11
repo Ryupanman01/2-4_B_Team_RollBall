@@ -113,12 +113,12 @@ public class PlayerController : MonoBehaviour
                 re += 1;
                 StartCoroutine(ResultSet());
             }
-            if (Input.GetKeyDown("joystick button 0"))
+            if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown("joystick button 2"))
             {
                 ResultPanel.SetActive(false);
                 StopCoroutine(ResultSet());
                 ReTryPanel.SetActive(true);
-                if (Input.GetKeyDown("joystick button 0"))
+                if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown("joystick button 2"))
                 {
                     ReTryPanel.SetActive(true);
                 }
