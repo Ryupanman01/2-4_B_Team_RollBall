@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+
     public static int score;   //スコア
     private Vector3 lastvelocity;
     private Rigidbody rb;
@@ -25,12 +26,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject ReTryPanel;
 
     public ParticleSystem confech;
+
+    //SE
+    public AudioClip sound1;
+    AudioSource audioSource;
+
     //カウントダウン
     float countdown = 4.0f;
     int count;
 
     void Start()
     {
+
+        //Componentを取得
+        audioSource = GetComponent<AudioSource>();
+
         score = 0;
         ClearText.text = "";
         rb = GetComponent<Rigidbody>();
@@ -61,14 +71,9 @@ public class PlayerController : MonoBehaviour
                 minute++;
                 second = second - 60;
             }
-
+            lastvelocity = rb.velocity;
             rb.isKinematic = false;
         }
-    }
-
-    void FixedUpdate()
-    {
-        lastvelocity = rb.velocity;
     }
 
     void OnCollisionEnter(Collision collision)
@@ -115,11 +120,16 @@ public class PlayerController : MonoBehaviour
             }
             if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown("joystick button 2"))
             {
+                //音(sound1)を鳴らす
+                audioSource.PlayOneShot(sound1);
+
                 ResultPanel.SetActive(false);
                 StopCoroutine(ResultSet());
                 ReTryPanel.SetActive(true);
                 if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown("joystick button 2"))
                 {
+                    //音(sound1)を鳴らす
+                    audioSource.PlayOneShot(sound1);
                     ReTryPanel.SetActive(true);
                 }
             }
