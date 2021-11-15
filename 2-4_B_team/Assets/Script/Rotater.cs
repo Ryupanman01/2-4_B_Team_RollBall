@@ -6,6 +6,12 @@ public class Rotater : MonoBehaviour
 {
     void Update()
     {
-        transform.Rotate(new Vector3(15, 30, 45) * Time.deltaTime);
+        if (gameObject.CompareTag("Item"))
+        {
+            transform.Rotate(new Vector3(15, 30, 45) * Time.deltaTime);
+        }else if (gameObject.CompareTag("Item1"))
+        {
+            transform.Rotate(new Vector3(0, 0, 45) * Time.deltaTime);
+        }
     }
 }

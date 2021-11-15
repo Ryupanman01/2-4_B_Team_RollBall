@@ -49,7 +49,7 @@ public class CousorSet : MonoBehaviour
                 Pos -= 1;
                 lastTimeStickDown_ = Time.unscaledTime;
             }
-            else if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown("joystick button 2"))
+            else if (Input.GetKeyDown("joystick button 1"))
             {
                 Debug.Log("音を鳴らしたよ");
                 audioSource.PlayOneShot(sound2);
@@ -59,7 +59,6 @@ public class CousorSet : MonoBehaviour
     }
     void function()
     {
-        //audioSource.PlayOneShot(sound2);
         if (Pos == 1)
         {
             
@@ -78,11 +77,11 @@ public class CousorSet : MonoBehaviour
 
         void Quit()
         {
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
-#elif UNITY_STANDALONE
-      UnityEngine.Application.Quit();
-#endif
+        #elif UNITY_STANDALONE
+            UnityEngine.Application.Quit();
+        #endif
         }
     }
 }

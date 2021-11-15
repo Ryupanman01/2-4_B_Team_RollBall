@@ -16,9 +16,9 @@ public class SceneChange : MonoBehaviour
 	void Update()
 	{
 
-		if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown("joystick button 2"))
+		if (Input.GetKeyDown("joystick button 1"))
 		{
-			SceneManager.LoadScene("SampleScene");
+			SceneManager.LoadScene("GameScene");
 		}
 	}
 }

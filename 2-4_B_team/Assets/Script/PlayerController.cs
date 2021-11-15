@@ -35,6 +35,9 @@ public class PlayerController : MonoBehaviour
     float countdown = 4.0f;
     int count;
 
+    //アイテムを大きくする時間制限
+    public bool hasBigBall;
+
     void Start()
     {
 
@@ -88,16 +91,44 @@ public class PlayerController : MonoBehaviour
             //スコアを加算する
             score = score + 1;
             //ログ表示
-            Debug.Log("当たった");
+            Debug.Log("コインに当たった");
             //エフェクト再生
             explode.Play();
         }
+
+        //大きさを二倍にする
+        if (hasBigBall == true)
+        {
+            this.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f) * 2;
+            //エフェクト追加
+            explode.transform.position = transform.position;
+            //エフェクト再生
+            explode.Play();
+         }
+         else if(hasBigBall == false)
+         {
+            this.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+         }
+            
+
         //衝突した相手にWallタグが付いているとき
         if (collision.gameObject.tag == "Wall")
         {
             //反射する
             Vector3 refrectVec = Vector3.Reflect(lastvelocity, collision.contacts[0].normal);
             rb.velocity = refrectVec;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Item1"))
+        {
+            hasBigBall = true;
+            other.gameObject.SetActive(false);
+            StartCoroutine(SpeedupCountdown());
+            //ログ表示
+            Debug.Log("加速アイテムに当たった");
         }
     }
 
@@ -126,12 +157,6 @@ public class PlayerController : MonoBehaviour
                 ResultPanel.SetActive(false);
                 StopCoroutine(ResultSet());
                 ReTryPanel.SetActive(true);
-                //if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown("joystick button 2"))
-                //{
-                //    //音(sound1)を鳴らす
-                //    audioSource.PlayOneShot(sound1);
-                //    ReTryPanel.SetActive(true);
-                //}
             }
         }
     }
@@ -141,11 +166,30 @@ public class PlayerController : MonoBehaviour
 
         ResultCoin.text = "取得したコイン　" + score.ToString() + "枚";
         ResultTime.text = "かかった時間　" + minute.ToString() + ":" + second.ToString("00");
-        // 3秒間待つ
+        //1秒間待つ
         yield return new WaitForSecondsRealtime(1);
 
         ResultPanel.SetActive(true);
     }
+
+    private IEnumerator SpeedupCountdown()
+    {
+        yield return new WaitForSeconds(7);
+        hasBigBall = false;
+    }
+
+
+    //void SpeedUp()
+    //{
+    //    BigLimit += Time.deltaTime;
+    //    if (BigLimit < 7.0)
+    //    {
+    //        this.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f) * 2;
+    //    }
+    //    else
+    //    {
+    //        this.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+    //    }
+    //}
+
 }
-
-
