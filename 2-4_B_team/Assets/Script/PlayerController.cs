@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-
+        Ball = gameObject.transform.localScale;
         //Componentを取得
         audioSource = GetComponent<AudioSource>();
 
@@ -81,25 +81,10 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        //衝突した相手にPlayerタグがついているとき
-        if (collision.gameObject.CompareTag("Item"))
-        {
-            //エフェクト追加
-            explode.transform.position = transform.position;
-            //その収集アイテムを非表示にする
-            collision.gameObject.SetActive(false);
-            //スコアを加算する
-            score = score + 1;
-            //ログ表示
-            Debug.Log("コインに当たった");
-            //エフェクト再生
-            explode.Play();
-        }
-
-        //大きさを二倍にする
         if (hasBigBall == true)
         {
-            this.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f) * 2;
+            //大きさを二倍にする
+            this.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f) * 1.5f;
             //エフェクト追加
             explode.transform.position = transform.position;
             //エフェクト再生
@@ -107,6 +92,7 @@ public class PlayerController : MonoBehaviour
          }
          else if(hasBigBall == false)
          {
+            //ボールの大きさを元に戻す
             this.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
          }
             
@@ -129,6 +115,21 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(SpeedupCountdown());
             //ログ表示
             Debug.Log("加速アイテムに当たった");
+        }
+
+        //衝突した相手にPlayerタグがついているとき
+        if (other.gameObject.CompareTag("Item"))
+        {
+            //エフェクト追加
+            explode.transform.position = transform.position;
+            //その収集アイテムを非表示にする
+            other.gameObject.SetActive(false);
+            //スコアを加算する
+            score = score + 1;
+            //ログ表示
+            Debug.Log("コインに当たった");
+            //エフェクト再生
+            explode.Play();
         }
     }
 
@@ -166,8 +167,8 @@ public class PlayerController : MonoBehaviour
 
         ResultCoin.text = "取得したコイン　" + score.ToString() + "枚";
         ResultTime.text = "かかった時間　" + minute.ToString() + ":" + second.ToString("00");
-        //1秒間待つ
-        yield return new WaitForSecondsRealtime(1);
+        //2秒間待つ
+        yield return new WaitForSecondsRealtime(2);
 
         ResultPanel.SetActive(true);
     }
@@ -177,19 +178,4 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(7);
         hasBigBall = false;
     }
-
-
-    //void SpeedUp()
-    //{
-    //    BigLimit += Time.deltaTime;
-    //    if (BigLimit < 7.0)
-    //    {
-    //        this.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f) * 2;
-    //    }
-    //    else
-    //    {
-    //        this.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
-    //    }
-    //}
-
 }

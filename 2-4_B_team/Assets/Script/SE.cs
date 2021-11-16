@@ -5,11 +5,14 @@ using UnityEngine;
 public class SE : MonoBehaviour
 {
     AudioSource audioSource;
-
-
     public AudioClip sound;
 
-    void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
+    {
+        AudioSource.PlayClipAtPoint(sound, transform.position);
+    }
+
+    private void OnCollisionEnter(Collision collision)
     {
         AudioSource.PlayClipAtPoint(sound, transform.position);
     }

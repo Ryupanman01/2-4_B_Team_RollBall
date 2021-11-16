@@ -5555,6 +5555,11 @@ PrefabInstance:
       propertyPath: sound1
       value: 
       objectReference: {fileID: 8300000, guid: ceddc1c8eb703514ea212734f3c68e5c, type: 3}
+    - target: {fileID: 1661913373941286790, guid: 3385707c2311ca44e9c121ff2cbfa765,
+        type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7478151cf36724a7dada558f746c3633, type: 3}
     - target: {fileID: 1799502257425538869, guid: 3385707c2311ca44e9c121ff2cbfa765,
         type: 3}
       propertyPath: m_UseGravity
@@ -32589,7 +32594,7 @@ PrefabInstance:
     - target: {fileID: 6109190352049418712, guid: 7e0c5f68920526c48aa5280aac6e2897,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e0c5f68920526c48aa5280aac6e2897, type: 3}
@@ -32675,7 +32680,13 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.07
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7853286613780450274, guid: 6c66a4b563ed8de41acb98318b6d43ed,
+        type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 52320e590bf774734a288886eba557ba, type: 3}
+    m_RemovedComponents:
+    - {fileID: 5377649753455498684, guid: 6c66a4b563ed8de41acb98318b6d43ed, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6c66a4b563ed8de41acb98318b6d43ed, type: 3}
 --- !u!1001 &8196996875797912840
 PrefabInstance:
