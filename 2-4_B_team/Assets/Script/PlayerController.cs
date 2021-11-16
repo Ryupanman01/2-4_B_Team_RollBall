@@ -20,7 +20,10 @@ public class PlayerController : MonoBehaviour
     public Text ScoreText;  //スコアテキスト
     public Text ClearText;  //クリアテキスト
     public GameObject Item; //アイテム
-    public ParticleSystem explode; //エフェクト
+
+    //エフェクト
+    public ParticleSystem explode;
+    public ParticleSystem explode1;
 
     [SerializeField] GameObject ResultPanel;
     [SerializeField] GameObject ReTryPanel;
@@ -40,7 +43,6 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        Ball = gameObject.transform.localScale;
         //Componentを取得
         audioSource = GetComponent<AudioSource>();
 
@@ -85,10 +87,6 @@ public class PlayerController : MonoBehaviour
         {
             //大きさを二倍にする
             this.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f) * 1.5f;
-            //エフェクト追加
-            explode.transform.position = transform.position;
-            //エフェクト再生
-            explode.Play();
          }
          else if(hasBigBall == false)
          {
@@ -113,6 +111,10 @@ public class PlayerController : MonoBehaviour
             hasBigBall = true;
             other.gameObject.SetActive(false);
             StartCoroutine(SpeedupCountdown());
+            //エフェクト追加
+            explode1.transform.position = transform.position;
+            //エフェクト再生
+            explode1.Play();
             //ログ表示
             Debug.Log("加速アイテムに当たった");
         }

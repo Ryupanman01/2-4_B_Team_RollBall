@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5377649753455498684}
   - component: {fileID: 7853286613780450274}
   m_Layer: 0
-  m_Name: Speed_up_Item
+  m_Name: Sizeup_Item
   m_TagString: Item1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,4 +145,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b84ce6d01bfa3e24381c14cffa7283d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 8300000, guid: 52320e590bf774734a288886eba557ba, type: 3}
+  sound: {fileID: 8300000, guid: faa874bbbe9dfeb458f86531b2bd8eb9, type: 3}
