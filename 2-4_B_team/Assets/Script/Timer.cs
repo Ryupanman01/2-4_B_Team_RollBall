@@ -8,22 +8,16 @@ public class Timer : MonoBehaviour
     public Text CountDownText;  //カウントダウンテキスト
     public Text StartText;  //スタートテキスト
 
+    //カウントダウン
     float countdown = 4.0f;
     int count;
 
-    //SE
-    public AudioClip sound;
-    AudioSource audioSource;
-
-    private void Start()
+    void Start()
     {
-        //Componentを取得
-        audioSource = GetComponent<AudioSource>();
     }
 
-    private void Update()
+    void Update()
     {
-        audioSource.PlayOneShot(sound);
         //1秒以上なら
         if(countdown >= 1)
         {
