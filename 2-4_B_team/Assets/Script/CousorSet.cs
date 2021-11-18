@@ -6,23 +6,23 @@ using UnityEngine.UI;
 
 public class CousorSet : MonoBehaviour
 {
+    //ポーズ画面設定
     int Pos = 1;
     public int nummenu;
     public float linewidth;
 
     //SE
-    public AudioClip sound1;
-    public AudioClip sound2;
-    AudioSource audioSource;
+    public AudioSource CursorMove;
+    public AudioSource CursorCheck;
 
     float lastTimeStickDown_ = 0f;
 
     // Use this for initialization
     void Start()
     {
-        //Componentを取得
-        audioSource = GetComponent<AudioSource>();
+
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -33,8 +33,9 @@ public class CousorSet : MonoBehaviour
             //if (Input.GetKeyDown("down") && Pos != nummenu)
             if (Input.GetAxisRaw("Vertical") < 0 && Pos != nummenu)
             {
-                //音(sound1)を鳴らす
-                audioSource.PlayOneShot(sound1);
+                //音(CursorMove)を鳴らす
+                CursorMove.Play();
+
                 Vector3 tmp = this.transform.position;
                 this.transform.position = new Vector3(tmp.x, tmp.y - linewidth, tmp.z);
                 Pos += 1;
@@ -42,8 +43,9 @@ public class CousorSet : MonoBehaviour
             }
             else if (Input.GetAxisRaw("Vertical") > 0 && Pos != 1)
             {
-                //音(sound1)を鳴らす
-                audioSource.PlayOneShot(sound1);
+                //音(CursorMove)を鳴らす
+                CursorMove.Play();
+
                 Vector3 tmp = this.transform.position;
                 this.transform.position = new Vector3(tmp.x, tmp.y + linewidth, tmp.z);
                 Pos -= 1;
@@ -51,8 +53,8 @@ public class CousorSet : MonoBehaviour
             }
             else if (Input.GetKeyDown("joystick button 1"))
             {
+                CursorCheck.Play();
                 Debug.Log("音を鳴らしたよ");
-                audioSource.PlayOneShot(sound2);
                 function();
             }
         }

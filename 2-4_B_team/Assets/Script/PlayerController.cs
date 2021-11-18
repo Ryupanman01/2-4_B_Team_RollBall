@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     public Text ResultCoin;
     public Text ResultTime;
 
-    public Text ScoreText;  //スコアテキスト
+    public Text CountText;  //スコアテキスト
     public Text ClearText;  //クリアテキスト
     public GameObject Item; //アイテム
 
@@ -31,8 +31,8 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem confech;
 
     //SE
-    public AudioClip sound1;
-    AudioSource audioSource;
+    public AudioSource Roll_Ball;
+    public AudioSource CursorCheck;
 
     //カウントダウン
     float countdown = 4.0f;
@@ -43,9 +43,6 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        //Componentを取得
-        audioSource = GetComponent<AudioSource>();
-
         score = 0;
         ClearText.text = "";
         rb = GetComponent<Rigidbody>();
@@ -137,7 +134,7 @@ public class PlayerController : MonoBehaviour
 
     void SetCountText()
     {
-        ScoreText.text = score.ToString() + " / 12";
+        CountText.text = score.ToString() + " / 12";
 
         //すべての収集アイテムを獲得した場合
         if (score == 12)
@@ -152,10 +149,10 @@ public class PlayerController : MonoBehaviour
                 re += 1;
                 StartCoroutine(ResultSet());
             }
-            if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown("joystick button 2"))
+            if (Input.GetKeyDown("joystick button 1"))
             {
-                //音(sound1)を鳴らす
-                audioSource.PlayOneShot(sound1);
+                //音(CursorCheck)を鳴らす
+                CursorCheck.Play();
 
                 ResultPanel.SetActive(false);
                 StopCoroutine(ResultSet());
