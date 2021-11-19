@@ -5,20 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
-
+	private int select = 0;
+	[SerializeField] GameObject SelectPanel;
+	[SerializeField] GameObject Panel;
 	// Use this for initialization
 	void Start()
 	{
-
+		SelectPanel.SetActive(false);
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
 
-		if (Input.GetKeyDown("joystick button 1"))
+		if (Input.anyKeyDown)
 		{
-			SceneManager.LoadScene("GameScene");
+			if (select == 0)
+			{
+				Panel.SetActive(false);
+				SelectPanel.SetActive(true);
+			}
 		}
 	}
 }

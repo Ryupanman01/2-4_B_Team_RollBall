@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class CousorSet : MonoBehaviour
+public class SelectStage : MonoBehaviour
 {
     //ポーズ画面設定
     int Pos = 1;
@@ -70,20 +71,19 @@ public class CousorSet : MonoBehaviour
         else if (Pos == 2)
         {
             Time.timeScale = 1f;
-            SceneManager.LoadScene("TitleScene");
+            SceneManager.LoadScene(2);
         }
         else if (Pos == 3)
         {
-            Quit();
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(3);
+        }
+        else if (Pos == 4)
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(4);
         }
 
-        void Quit()
-        {
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-#elif UNITY_STANDALONE
-            UnityEngine.Application.Quit();
-#endif
-        }
+
     }
 }
