@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        //カウントダウン
         SetCountText();
         if (countdown >= 0)
         {
@@ -76,22 +77,22 @@ public class PlayerController : MonoBehaviour
             lastvelocity = rb.velocity;
             rb.isKinematic = false;
         }
-    }
 
-    void OnCollisionEnter(Collision collision)
-    {
+        //ボールの大きさを変える
         if (hasBigBall == true)
         {
             //大きさを二倍にする
             this.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f) * 1.5f;
-         }
-         else if(hasBigBall == false)
-         {
+        }
+        else if (hasBigBall == false)
+        {
             //ボールの大きさを元に戻す
             this.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
-         }
-            
+        }
+    }
 
+    void OnCollisionEnter(Collision collision)
+    {
         //衝突した相手にWallタグが付いているとき
         if (collision.gameObject.tag == "Wall")
         {
