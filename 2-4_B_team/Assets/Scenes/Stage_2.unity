@@ -707,7 +707,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 186636049}
-  m_LocalRotation: {x: 0.27234325, y: -0.000000026076025, z: 0.0000000073806157, w: 0.96220016}
+  m_LocalRotation: {x: 0.27234325, y: -3e-45, z: 1e-45, w: 0.96220016}
   m_LocalPosition: {x: 0, y: 2.5, z: -1.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -7850,7 +7850,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "-- X\u304BB\u30DC\u30BF\u30F3\u3092\u62BC\u3057\u3066\u304F\u3060\u3055\u3044
+  m_Text: "-- B\u30DC\u30BF\u30F3\u3092\u62BC\u3057\u3066\u304F\u3060\u3055\u3044
     --"
 --- !u!222 &971841316
 CanvasRenderer:
@@ -8505,6 +8505,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfb819594838dac428af1cbd2e96d487, type: 3}
+--- !u!82 &1244508731 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1117880349322742964, guid: cfb819594838dac428af1cbd2e96d487,
+    type: 3}
+  m_PrefabInstance: {fileID: 1244508730}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1270114141
 GameObject:
   m_ObjectHideFlags: 0
@@ -8708,7 +8714,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.343042, y: 1}
+    m_SensorSize: {x: 1.7779905, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -8724,7 +8730,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357380048}
-  m_LocalRotation: {x: 0.27234325, y: -0.000000026076025, z: 0.0000000073806157, w: 0.96220016}
+  m_LocalRotation: {x: 0.27234325, y: -3e-45, z: 1e-45, w: 0.96220016}
   m_LocalPosition: {x: 0, y: 2.5, z: -1.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9821,6 +9827,11 @@ PrefabInstance:
       propertyPath: CursorCheck
       value: 
       objectReference: {fileID: 1899509110}
+    - target: {fileID: 1661913373941286790, guid: 3385707c2311ca44e9c121ff2cbfa765,
+        type: 3}
+      propertyPath: GameBGM
+      value: 
+      objectReference: {fileID: 1244508731}
     - target: {fileID: 1799502257425538869, guid: 3385707c2311ca44e9c121ff2cbfa765,
         type: 3}
       propertyPath: m_UseGravity

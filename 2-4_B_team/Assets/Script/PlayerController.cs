@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     //SE
     public AudioSource Roll_Ball;
     public AudioSource CursorCheck;
+    public AudioSource GameBGM;
+    private bool bgm_flg;
 
     //カウントダウン
     float countdown = 4.0f;
@@ -43,6 +45,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        bgm_flg = false;
         score = 0;
         ClearText.text = "";
         rb = GetComponent<Rigidbody>();
@@ -65,6 +68,7 @@ public class PlayerController : MonoBehaviour
             count = (int)countdown;
             rb.velocity = Vector3.zero;
             rb.isKinematic = true;
+            bgm_flg = true;
         }
         else
         {
@@ -76,6 +80,12 @@ public class PlayerController : MonoBehaviour
             }
             lastvelocity = rb.velocity;
             rb.isKinematic = false;
+        }
+
+        if(bgm_flg == true)
+        {
+            GameBGM.Play();
+            bgm_flg = false;
         }
 
         //ボールの大きさを変える
@@ -140,6 +150,7 @@ public class PlayerController : MonoBehaviour
         //すべての収集アイテムを獲得した場合
         if (score == 12)
         {
+            GameBGM.Stop();
             Time.timeScale = 0f;
             Application.targetFrameRate = 60;
             Debug.Log("クリアテキストのFPS：" + Application.targetFrameRate);

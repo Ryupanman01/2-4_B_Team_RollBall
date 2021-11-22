@@ -415,7 +415,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "-- X\u304BB\u30DC\u30BF\u30F3\u3067\u30B2\u30FC\u30E0\u30B9\u30BF\u30FC\u30C8
+  m_Text: "-- B\u30DC\u30BF\u30F3\u3067\u30B2\u30FC\u30E0\u30B9\u30BF\u30FC\u30C8
     --"
 --- !u!222 &344174104
 CanvasRenderer:
@@ -686,6 +686,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SE
+      objectReference: {fileID: 0}
+    - target: {fileID: 6489311723621737352, guid: cfb819594838dac428af1cbd2e96d487,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfb819594838dac428af1cbd2e96d487, type: 3}
