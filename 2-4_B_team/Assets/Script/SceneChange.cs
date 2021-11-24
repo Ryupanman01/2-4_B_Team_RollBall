@@ -5,26 +5,33 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
-	private int select = 0;
+	//パネル
 	[SerializeField] GameObject SelectPanel;
-	[SerializeField] GameObject Panel;
-	// Use this for initialization
+	[SerializeField] GameObject TitlePanel;
+
+	//BGM
+	public AudioSource TitleBGM;
+	private bool titlebgm_flg;
+
+
 	void Start()
 	{
 		SelectPanel.SetActive(false);
+		titlebgm_flg = true;
 	}
 
-	// Update is called once per frame
 	void Update()
 	{
-
-		if (Input.anyKeyDown)
+		if(titlebgm_flg == true)
+        {
+			TitleBGM.Play();
+			titlebgm_flg = false;
+        }
+		if(Input.GetKeyDown("joystick button 1"))
 		{
-			if (select == 0)
-			{
-				Panel.SetActive(false);
-				SelectPanel.SetActive(true);
-			}
+			TitlePanel.SetActive(false);
+			SelectPanel.SetActive(true);
+			TitleBGM.Stop();
 		}
 	}
 }
