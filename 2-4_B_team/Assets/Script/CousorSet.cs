@@ -63,8 +63,9 @@ public class CousorSet : MonoBehaviour
     {
         if (Pos == 1)
         {
-
-            SceneManager.LoadScene(1);
+            Scene scene = SceneManager.GetActiveScene();
+            int buildIndex = scene.buildIndex;
+            SceneManager.LoadScene(buildIndex);
             Time.timeScale = 1f;
         }
         else if (Pos == 2)
