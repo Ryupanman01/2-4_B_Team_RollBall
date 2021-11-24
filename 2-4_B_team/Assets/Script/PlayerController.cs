@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     //SE
     public AudioSource Roll_Ball;
+    private bool roll_flg;
 
     //カウントダウン
     float countdown = 4.0f;
@@ -27,35 +28,16 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        score = 0;
-        rb = GetComponent<Rigidbody>();
+        InitBall();
     }
 
     void Update()
     {
-        //カウントダウン
-        if (countdown >= 0)
+        CountDown();
+        BigBall();
+        if (score == 12)
         {
-            countdown -= Time.deltaTime;
-            rb.velocity = Vector3.zero;
-            rb.isKinematic = true;
-        }
-        else
-        {
-            lastvelocity = rb.velocity;
-            rb.isKinematic = false;
-        }
-
-        //ボールの大きさを変える
-        if (hasBigBall == true)
-        {
-            //大きさを二倍にする
-            this.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f) * 1.5f;
-        }
-        else if (hasBigBall == false)
-        {
-            //ボールの大きさを元に戻す
-            this.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+            Roll_Ball.Stop();
         }
     }
 
@@ -70,13 +52,36 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Floor")
+        {
+            if (rb.velocity.magnitude < 0.3f)
+            {
+                roll_flg = true;
+                if (roll_flg == true)
+                {
+                    Roll_Ball.Play();
+                }
+            }
+            else
+            {
+                roll_flg = false;
+            }
+        }
+        else
+        {
+            roll_flg = false;
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Item1"))
         {
             hasBigBall = true;
             other.gameObject.SetActive(false);
-            StartCoroutine(SpeedupCountdown());
+            StartCoroutine(BigCountdown());
             //エフェクト追加
             explode1.transform.position = transform.position;
             //エフェクト再生
@@ -101,7 +106,46 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private IEnumerator SpeedupCountdown()
+    void InitBall()
+    {
+        score = 0;
+        roll_flg = false;
+        hasBigBall = false;
+        rb = GetComponent<Rigidbody>();
+    }
+
+    void CountDown()
+    {
+        //カウントダウン
+        if (countdown >= 0)
+        {
+            countdown -= Time.deltaTime;
+            rb.velocity = Vector3.zero;
+            rb.isKinematic = true;
+        }
+        else
+        {
+            lastvelocity = rb.velocity;
+            rb.isKinematic = false;
+        }
+    }
+
+    void BigBall()
+    {
+        //ボールの大きさを変える
+        if (hasBigBall == true)
+        {
+            //大きさを二倍にする
+            this.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f) * 1.5f;
+        }
+        else if (hasBigBall == false)
+        {
+            //ボールの大きさを元に戻す
+            this.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+        }
+    }
+
+    private IEnumerator BigCountdown()
     {
         yield return new WaitForSeconds(7);
         hasBigBall = false;
