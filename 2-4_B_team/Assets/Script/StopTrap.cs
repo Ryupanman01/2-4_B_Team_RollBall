@@ -17,16 +17,7 @@ public class StopTrap : MonoBehaviour
 
             GameObject effect = Instantiate(effectPrefab, transform.position, Quaternion.identity);
             Destroy(effect, 2.0f);
-
-            // ポイント
-            // ２秒後にボールが動けるようにする。
-            Invoke("StopOff", 2.0f);
         }
     }
 
-    void StopOff()
-    {
-        // ポイント
-        // Ballの動きを司るスクリプトをオンにする。
-    }
 }
