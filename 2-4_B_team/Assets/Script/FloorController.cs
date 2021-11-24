@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotateLimit : MonoBehaviour
+public class FloorController : MonoBehaviour
 {
     [SerializeField]
     [Tooltip("最小角度(-180～180")]
@@ -35,6 +35,7 @@ public class RotateLimit : MonoBehaviour
 
     private void Update()
     {
+
     }
 
     void FixedUpdate()
