@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - Item1
   - Floor
+  - GameOver
   layers:
   - Default
   - TransparentFX
