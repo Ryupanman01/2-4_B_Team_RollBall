@@ -9,7 +9,6 @@ TagManager:
   - Item1
   - Floor
   - GameOver
-  - Item2
   layers:
   - Default
   - TransparentFX
