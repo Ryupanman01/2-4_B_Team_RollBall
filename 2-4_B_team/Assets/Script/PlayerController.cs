@@ -16,9 +16,12 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem explode;
     public ParticleSystem explode1;
 
+    //ポーズ
+    private int pause;
+
     //SE
     public AudioSource Roll_Ball;
-    private bool roll_flg;
+    public bool roll_flg;
 
     //カウントダウン
     float countdown = 4.0f;
@@ -35,6 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         CountDown();
         BigBall();
+        Pause();
         if (score == 12)
         {
             Roll_Ball.Stop();
@@ -52,14 +56,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnCollisionStay(Collision collision)
+    void OnCollisionStay(Collision col)
     {
-        if (collision.gameObject.tag == "Floor")
+        if(col.gameObject.tag == "Floor")
         {
-            if (rb.velocity.magnitude < 0.3f)
+            if(rb.velocity.magnitude > 0.3f)
             {
                 roll_flg = true;
-                if (roll_flg == true)
+                if (!Roll_Ball.isPlaying)
                 {
                     Roll_Ball.Play();
                 }
@@ -67,10 +71,15 @@ public class PlayerController : MonoBehaviour
             else
             {
                 roll_flg = false;
+                if (Roll_Ball.isPlaying)
+                {
+                    Roll_Ball.Stop();
+                }
             }
         }
         else
         {
+            Roll_Ball.Stop();
             roll_flg = false;
         }
     }
@@ -87,7 +96,7 @@ public class PlayerController : MonoBehaviour
             //エフェクト再生
             explode1.Play();
             //ログ表示
-            Debug.Log("加速アイテムに当たった");
+            Debug.Log("巨大化アイテムに当たった");
         }
 
         //衝突した相手にPlayerタグがついているとき
@@ -111,7 +120,7 @@ public class PlayerController : MonoBehaviour
         score = 0;
         roll_flg = false;
         hasBigBall = false;
-        rb = GetComponent<Rigidbody>();
+        rb = this.GetComponent<Rigidbody>();
     }
 
     void CountDown()
@@ -127,6 +136,33 @@ public class PlayerController : MonoBehaviour
         {
             lastvelocity = rb.velocity;
             rb.isKinematic = false;
+        }
+    }
+
+    //ポーズフラグ
+    void Pause()
+    {
+        if (countdown < 0)
+        {
+            if (score < 12)
+            {
+                if (Input.GetKeyDown("joystick button 7"))
+                {
+                    if (pause == 0)
+                    {
+                        Roll_Ball.Stop();
+                        pause = 1;
+                    }
+                    else
+                    {
+                        pause = 0;
+                    }
+                }
+                else
+                {
+                    ;
+                }
+            }
         }
     }
 
