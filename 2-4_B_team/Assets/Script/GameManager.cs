@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
 
     //SE管理
     public AudioSource GameBGM;
+    public AudioSource Game_Clear;
     public AudioSource CursorCheck;
 
     private void Start()
@@ -86,6 +87,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("クリアテキストのFPS：" + Application.targetFrameRate);
             if (re == 0)
             {
+                Game_Clear.Play();
                 re += 1;
                 StartCoroutine(ResultSet());
             }

@@ -936,7 +936,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3663366, y: 1}
+    m_SensorSize: {x: 1.3712871, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -16653,6 +16653,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae53b1a551236ad4fa0b07c500467040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1313954329 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5865648131667536071, guid: cfb819594838dac428af1cbd2e96d487,
+    type: 3}
+  m_PrefabInstance: {fileID: 6114668536615132239}
+  m_PrefabAsset: {fileID: 0}
 --- !u!198 &1342466290 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 3481643557315536342, guid: 8ae61efcfc390e34393b1ed6c4406777,
@@ -27240,6 +27246,11 @@ PrefabInstance:
       propertyPath: PausePanel
       value: 
       objectReference: {fileID: 1626114493}
+    - target: {fileID: 532781994244577279, guid: 2ce8d878f8638a841adb85d0b42b7c63,
+        type: 3}
+      propertyPath: Game_Clear
+      value: 
+      objectReference: {fileID: 1313954329}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ce8d878f8638a841adb85d0b42b7c63, type: 3}
 --- !u!1001 &1543530774945129772
@@ -27543,7 +27554,7 @@ PrefabInstance:
     - target: {fileID: 1117880349322742964, guid: cfb819594838dac428af1cbd2e96d487,
         type: 3}
       propertyPath: m_Volume
-      value: 0.2
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 1117880349322742964, guid: cfb819594838dac428af1cbd2e96d487,
         type: 3}
@@ -27563,8 +27574,13 @@ PrefabInstance:
     - target: {fileID: 1117880349322742964, guid: cfb819594838dac428af1cbd2e96d487,
         type: 3}
       propertyPath: BypassReverbZones
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5865648131667536071, guid: cfb819594838dac428af1cbd2e96d487,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 368c412aa531a4941be34a0c7295b72f, type: 3}
     - target: {fileID: 6114668536487595713, guid: cfb819594838dac428af1cbd2e96d487,
         type: 3}
       propertyPath: Loop
