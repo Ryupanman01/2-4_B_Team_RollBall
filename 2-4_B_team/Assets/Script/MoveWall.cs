@@ -22,7 +22,7 @@ public class MoveWall : Trap
     protected override void Start()
     {
         origin = transform.position;
-        destination = new Vector3(origin.x - moveX, origin.y - moveY, origin.z - moveZ);
+        destination = new Vector3(origin.x - moveX, origin.y, origin.z - moveZ);
     }
 
     protected override void Update()
