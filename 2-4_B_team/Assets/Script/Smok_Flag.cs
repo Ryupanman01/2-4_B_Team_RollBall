@@ -5,11 +5,11 @@ using UnityEngine;
 public class Smok_Flag : MonoBehaviour
 {
     private ParticleSystem ps;
-    public bool moduleEnabled;
+    public bool moduleEnabled;                  //bool型でon off を決める
 
     void Start()
     {
-        ps = GetComponent<ParticleSystem>();
+        ps = GetComponent<ParticleSystem>();    //psに転がるエフェクトを入れる
 
         ParticleSystem.EmissionModule emission = ps.emission;
         moduleEnabled = false;
