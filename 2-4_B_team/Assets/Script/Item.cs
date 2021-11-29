@@ -17,6 +17,10 @@ public class Item : MonoBehaviour
         {
             transform.Rotate(new Vector3(0, 0, 45) * Time.deltaTime);
         }
+        else if (gameObject.CompareTag("Item2"))
+        {
+            transform.Rotate(new Vector3(15, 30, 45) * Time.deltaTime);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
