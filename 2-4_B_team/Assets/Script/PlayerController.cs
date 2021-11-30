@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
             ParticleSystem.EmissionModule emission = ps.emission;
             moduleEnabled = true;
             emission.enabled = moduleEnabled;
-            if (rb.velocity.magnitude < 0.3f)
+            if (rb.velocity.magnitude > 0.3f)
             {
                 roll_flg = true;
                 if (!Roll_Ball.isPlaying)
