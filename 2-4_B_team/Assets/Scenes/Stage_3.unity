@@ -8364,7 +8364,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 368c412aa531a4941be34a0c7295b72f, type: 3}
+      objectReference: {fileID: 8300000, guid: 13d9afcd239fa8846a81138f17b3d909, type: 3}
     - target: {fileID: 6114668538259621654, guid: cfb819594838dac428af1cbd2e96d487,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8436,6 +8436,12 @@ AudioSource:
 --- !u!82 &1244508732 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 5865648131667536071, guid: cfb819594838dac428af1cbd2e96d487,
+    type: 3}
+  m_PrefabInstance: {fileID: 1244508730}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1244508733 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8302455273954320005, guid: cfb819594838dac428af1cbd2e96d487,
     type: 3}
   m_PrefabInstance: {fileID: 1244508730}
   m_PrefabAsset: {fileID: 0}
@@ -9916,6 +9922,11 @@ PrefabInstance:
       propertyPath: GameBGM
       value: 
       objectReference: {fileID: 1244508731}
+    - target: {fileID: 1661913373941286790, guid: 3385707c2311ca44e9c121ff2cbfa765,
+        type: 3}
+      propertyPath: Powerdown
+      value: 
+      objectReference: {fileID: 1244508733}
     - target: {fileID: 1799502257425538869, guid: 3385707c2311ca44e9c121ff2cbfa765,
         type: 3}
       propertyPath: m_UseGravity

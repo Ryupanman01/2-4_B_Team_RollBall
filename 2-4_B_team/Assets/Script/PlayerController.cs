@@ -19,9 +19,14 @@ public class PlayerController : MonoBehaviour
     //ポーズ
     private int pause;
 
+    //点滅
+    public float interval = 0.1f;
+
     //SE
     public AudioSource Roll_Ball;
     public bool roll_flg;
+
+    public AudioSource Powerdown;
 
     //カウントダウン
     float countdown = 4.0f;
@@ -204,7 +209,19 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator BigCountdown()
     {
-        yield return new WaitForSeconds(7);
+        yield return new WaitForSeconds(4);
+
+        while (interval > 0.001)
+        {
+            var renderComponent = GetComponent<Renderer>();
+            renderComponent.enabled = !renderComponent.enabled;
+
+            interval *= 0.90f;
+
+            yield return new WaitForSeconds(interval);
+        }
+        Powerdown.Play();
         hasBigBall = false;
+        interval = 0.1f;
     }
 }
