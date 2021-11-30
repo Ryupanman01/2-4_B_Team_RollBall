@@ -1190,6 +1190,7 @@ MonoBehaviour:
   SelectPanel: {fileID: 1876135489}
   TitlePanel: {fileID: 956555013}
   TitleBGM: {fileID: 1479461463}
+  CursorCheck: {fileID: 1271248645}
 --- !u!4 &1803557567
 Transform:
   m_ObjectHideFlags: 0
