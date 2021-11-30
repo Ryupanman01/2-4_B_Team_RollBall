@@ -29,9 +29,22 @@ public class PlayerController : MonoBehaviour
     //アイテムを大きくする時間制限
     public bool hasBigBall;
 
+
+    //空中でエフェクトを出さない
+    private ParticleSystem ps;
+    public bool moduleEnabled;
+
     void Start()
     {
         InitBall();
+
+        //空中でエフェクトを出さない
+        ps = GetComponent<ParticleSystem>();
+        ParticleSystem.EmissionModule emission = ps.emission;
+        moduleEnabled = false;
+        emission.enabled = moduleEnabled;
+
+        Invoke("Call", 4.5f);
     }
 
     void Update()
@@ -60,12 +73,16 @@ public class PlayerController : MonoBehaviour
     {
         if(col.gameObject.tag == "Floor")
         {
-            if(rb.velocity.magnitude > 0.3f)
+            ParticleSystem.EmissionModule emission = ps.emission;
+            moduleEnabled = true;
+            emission.enabled = moduleEnabled;
+            if (rb.velocity.magnitude < 0.3f)
             {
                 roll_flg = true;
                 if (!Roll_Ball.isPlaying)
                 {
-                    Roll_Ball.Play();
+                    Roll_Ball.Play(); 
+
                 }
             }
             else
@@ -81,6 +98,10 @@ public class PlayerController : MonoBehaviour
         {
             Roll_Ball.Stop();
             roll_flg = false;
+
+            ParticleSystem.EmissionModule emission = ps.emission;
+            moduleEnabled = false;
+            emission.enabled = moduleEnabled;
         }
     }
 

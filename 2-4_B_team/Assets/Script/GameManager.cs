@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
     public AudioSource Game_Clear;
     public AudioSource CursorCheck;
 
+    public bool flg = false;
+
     private void Start()
     {
         InitGame();
@@ -53,6 +55,7 @@ public class GameManager : MonoBehaviour
         CountDown();
         Pause();
         GameClear();
+
     }
 
     //ゲーム初期化
@@ -91,13 +94,12 @@ public class GameManager : MonoBehaviour
                 re += 1;
                 StartCoroutine(ResultSet());
             }
-            if (Input.GetKeyDown("joystick button 1"))
+            if (Input.GetKeyDown("joystick button 1") && flg == true)
             {
                 //音(CursorCheck)を鳴らす
                 CursorCheck.Play();
-
                 ResultPanel.SetActive(false);
-                StopCoroutine(ResultSet());
+                //StopCoroutine(ResultSet());
                 ReTryPanel.SetActive(true);
             }
         }
@@ -188,6 +190,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(2);
 
         ResultPanel.SetActive(true);
+        flg = true;
     }
 }
 
