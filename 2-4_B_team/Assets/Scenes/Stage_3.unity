@@ -551,6 +551,7 @@ GameObject:
   - component: {fileID: 186636052}
   - component: {fileID: 186636051}
   - component: {fileID: 186636050}
+  - component: {fileID: 186636054}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -650,13 +651,22 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 186636049}
-  m_LocalRotation: {x: 0.27234325, y: -1e-45, z: 0, w: 0.96220016}
+  m_LocalRotation: {x: 0.27234325, y: -0.0000000330489, z: 0.000000009354233, w: 0.96220016}
   m_LocalPosition: {x: 0.084, y: 2.5, z: -1.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 127.843994, y: -0.000015258789, z: 0}
+--- !u!45 &186636054
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186636049}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 0}
 --- !u!4 &196599712 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6222973484295455326, guid: b106d2bc1da441b4ab344a6739f0bb02,
@@ -8791,7 +8801,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3663366, y: 1}
+    m_SensorSize: {x: 1.7853736, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -8807,7 +8817,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357380048}
-  m_LocalRotation: {x: 0.27234325, y: -1e-45, z: -0, w: 0.96220016}
+  m_LocalRotation: {x: 0.27234325, y: -0.0000000330489, z: 0.000000009354233, w: 0.96220016}
   m_LocalPosition: {x: 0.084, y: 2.5, z: -1.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
