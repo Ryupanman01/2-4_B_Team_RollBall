@@ -542,7 +542,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 462503915}
-  m_LocalRotation: {x: 0.27234325, y: 3e-45, z: -1e-45, w: 0.96220016}
+  m_LocalRotation: {x: 0.27234325, y: -1e-45, z: -0, w: 0.96220016}
   m_LocalPosition: {x: 0, y: 2.5, z: -1.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -579,7 +579,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3535109, y: 1}
+    m_SensorSize: {x: 2.4425838, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -10452,7 +10452,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.27234325, y: 3e-45, z: -1e-45, w: 0.96220016}
+  m_LocalRotation: {x: 0.27234325, y: -1e-45, z: 0, w: 0.96220016}
   m_LocalPosition: {x: 0, y: 2.5, z: -1.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -10493,6 +10493,12 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1004320807 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3133620612402175633, guid: 3f555532548689244a358390b3bebb74,
+    type: 3}
+  m_PrefabInstance: {fileID: 3133620613314443447}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1081987049
 GameObject:
   m_ObjectHideFlags: 0
@@ -25681,6 +25687,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2327789116871944570, guid: 3f555532548689244a358390b3bebb74,
+        type: 3}
+      propertyPath: SelectIcon
+      value: 
+      objectReference: {fileID: 1004320807}
+    - target: {fileID: 2327789116871944570, guid: 3f555532548689244a358390b3bebb74,
+        type: 3}
+      propertyPath: linewidth
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 3133620612402175647, guid: 3f555532548689244a358390b3bebb74,
         type: 3}
       propertyPath: CursorMove
@@ -25811,6 +25827,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8687365067160517947, guid: 3f555532548689244a358390b3bebb74,
+        type: 3}
+      propertyPath: CursorMove
+      value: 
+      objectReference: {fileID: 1379378538}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f555532548689244a358390b3bebb74, type: 3}
 --- !u!1001 &3481643557260938877

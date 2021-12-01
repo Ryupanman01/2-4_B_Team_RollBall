@@ -85,12 +85,12 @@ public class GameManager : MonoBehaviour
             GameBGM.Stop();
             Time.timeScale = 0f;
             confech.enableEmission = true;
-            ClearText.SetActive(true);
             Application.targetFrameRate = 60;
             Debug.Log("クリアテキストのFPS：" + Application.targetFrameRate);
             if (re == 0)
             {
                 Game_Clear.Play();
+                ClearText.SetActive(true);
                 re += 1;
                 StartCoroutine(ResultSet());
             }
@@ -183,13 +183,13 @@ public class GameManager : MonoBehaviour
     //リザルト画面
     private IEnumerator ResultSet()
     {
-
         ResultCoin.text = "取得したコイン　" + PlayerController.score.ToString() + "枚";
         ResultTime.text = "かかった時間　" + minute.ToString() + ":" + second.ToString("00");
         //2秒間待つ
         yield return new WaitForSecondsRealtime(2);
 
         ResultPanel.SetActive(true);
+        ClearText.SetActive(false);
         flg = true;
     }
 }
