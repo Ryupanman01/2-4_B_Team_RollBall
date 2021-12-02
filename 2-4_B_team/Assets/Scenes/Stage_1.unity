@@ -542,7 +542,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 462503915}
-  m_LocalRotation: {x: 0.27234325, y: -1e-45, z: -0, w: 0.96220016}
+  m_LocalRotation: {x: 0.27234325, y: 3e-45, z: -1e-45, w: 0.96220016}
   m_LocalPosition: {x: 0, y: 2.5, z: -1.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10452,7 +10452,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.27234325, y: -1e-45, z: 0, w: 0.96220016}
+  m_LocalRotation: {x: 0.27234325, y: 3e-45, z: -1e-45, w: 0.96220016}
   m_LocalPosition: {x: 0, y: 2.5, z: -1.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -25717,6 +25717,11 @@ PrefabInstance:
       propertyPath: CursorCheck
       value: 
       objectReference: {fileID: 1115839705}
+    - target: {fileID: 3133620612780805003, guid: 3f555532548689244a358390b3bebb74,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3133620613642920640, guid: 3f555532548689244a358390b3bebb74,
         type: 3}
       propertyPath: m_Name
@@ -25827,11 +25832,46 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3333075458618009351, guid: 3f555532548689244a358390b3bebb74,
+        type: 3}
+      propertyPath: CursorCheck
+      value: 
+      objectReference: {fileID: 1115839705}
+    - target: {fileID: 3333075458618009351, guid: 3f555532548689244a358390b3bebb74,
+        type: 3}
+      propertyPath: CursorMove
+      value: 
+      objectReference: {fileID: 1379378538}
+    - target: {fileID: 7221780024079793550, guid: 3f555532548689244a358390b3bebb74,
+        type: 3}
+      propertyPath: CursorCheck
+      value: 
+      objectReference: {fileID: 1115839705}
+    - target: {fileID: 7221780024079793550, guid: 3f555532548689244a358390b3bebb74,
+        type: 3}
+      propertyPath: CursorMove
+      value: 
+      objectReference: {fileID: 1379378538}
     - target: {fileID: 8687365067160517947, guid: 3f555532548689244a358390b3bebb74,
         type: 3}
       propertyPath: CursorMove
       value: 
       objectReference: {fileID: 1379378538}
+    - target: {fileID: 9070047839343652858, guid: 3f555532548689244a358390b3bebb74,
+        type: 3}
+      propertyPath: CursorMove
+      value: 
+      objectReference: {fileID: 1379378538}
+    - target: {fileID: 9070047839343652858, guid: 3f555532548689244a358390b3bebb74,
+        type: 3}
+      propertyPath: CursorCheck
+      value: 
+      objectReference: {fileID: 1115839705}
+    - target: {fileID: 9070047839343652858, guid: 3f555532548689244a358390b3bebb74,
+        type: 3}
+      propertyPath: DontDestroyEnabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f555532548689244a358390b3bebb74, type: 3}
 --- !u!1001 &3481643557260938877
@@ -26022,6 +26062,11 @@ PrefabInstance:
     - target: {fileID: 6114668536487595713, guid: cfb819594838dac428af1cbd2e96d487,
         type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6114668537730662552, guid: cfb819594838dac428af1cbd2e96d487,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6114668538156972741, guid: cfb819594838dac428af1cbd2e96d487,

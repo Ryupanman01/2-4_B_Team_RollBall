@@ -326,7 +326,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 186636049}
-  m_LocalRotation: {x: 0.27234325, y: 3e-45, z: -1e-45, w: 0.96220016}
+  m_LocalRotation: {x: 0.27234325, y: -1e-45, z: 0, w: 0.96220016}
   m_LocalPosition: {x: 0.084, y: 2.5, z: -1.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -6888,6 +6888,26 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3333075458618009351, guid: 3f555532548689244a358390b3bebb74,
+        type: 3}
+      propertyPath: CursorCheck
+      value: 
+      objectReference: {fileID: 1899509110}
+    - target: {fileID: 3333075458618009351, guid: 3f555532548689244a358390b3bebb74,
+        type: 3}
+      propertyPath: CursorMove
+      value: 
+      objectReference: {fileID: 407327758}
+    - target: {fileID: 7221780024079793550, guid: 3f555532548689244a358390b3bebb74,
+        type: 3}
+      propertyPath: CursorCheck
+      value: 
+      objectReference: {fileID: 1899509110}
+    - target: {fileID: 7221780024079793550, guid: 3f555532548689244a358390b3bebb74,
+        type: 3}
+      propertyPath: CursorMove
+      value: 
+      objectReference: {fileID: 407327758}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f555532548689244a358390b3bebb74, type: 3}
 --- !u!1 &942088377 stripped
@@ -7759,7 +7779,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3535109, y: 1}
+    m_SensorSize: {x: 2.4425838, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7775,7 +7795,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357380048}
-  m_LocalRotation: {x: 0.27234325, y: 3e-45, z: -1e-45, w: 0.96220016}
+  m_LocalRotation: {x: 0.27234325, y: -1e-45, z: -0, w: 0.96220016}
   m_LocalPosition: {x: 0.084, y: 2.5, z: -1.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

@@ -1,14 +1,13 @@
-﻿
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class SelectStage : MonoBehaviour
+public class cursortest : MonoBehaviour
 {
     int number = 0;
-    private float Trigger;
+    private float Trigger;    
     public AudioSource CursorCheck;
     public AudioSource CursorMove;
 
@@ -16,17 +15,17 @@ public class SelectStage : MonoBehaviour
     {
         Transform myTransform = this.transform;
         Vector3 pos = myTransform.position;
-
+        
         if (0 < Input.GetAxisRaw("Vertical") && Trigger == 0.0f)
         {
             //音を鳴らす
             CursorMove.Play();
             number--;
-            pos.y += 50;
+            pos.y += 60;
             if (number < 0)
             {
-                number = 3;
-                pos.y -= 4 * 50;
+                number = 2;
+                pos.y -= 3 * 60;
             }
         }
         if (0 > Input.GetAxisRaw("Vertical") && Trigger == 0.0f)
@@ -34,17 +33,17 @@ public class SelectStage : MonoBehaviour
             //音を鳴らす
             CursorMove.Play();
             number++;
-            pos.y -= 50;
-            if (number > 3)
+            pos.y -= 60;
+            if (number > 2)
             {
                 number = 0;
-                pos.y += 4 * 50;
+                pos.y += 3 * 60;
             }
         }
-
+        
         myTransform.position = pos;  // 座標を設定
         Trigger = Input.GetAxisRaw("Vertical"); //カーソルの移動速度制御
-
+        
         if (Input.GetKeyDown("joystick button 1"))
         {
             CursorCheck.Play();
@@ -53,31 +52,32 @@ public class SelectStage : MonoBehaviour
         }
     }
 
-
     void Function()
     {
         if (number == 0)
         {
-
-            SceneManager.LoadScene(1);
+            Scene scene = SceneManager.GetActiveScene();
+            int buildIndex = scene.buildIndex;
+            SceneManager.LoadScene(buildIndex);
             Time.timeScale = 1f;
         }
         else if (number == 1)
         {
             Time.timeScale = 1f;
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene("TitleScene");
         }
         else if (number == 2)
         {
-            Time.timeScale = 1f;
-            SceneManager.LoadScene(3);
+            Quit();
         }
-        else if (number == 3)
-        {
-            Time.timeScale = 1f;
-            SceneManager.LoadScene(4);
-        }
+    }
 
-
+    void Quit()
+    {
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #elif UNITY_STANDALONE
+             UnityEngine.Application.Quit();
+        #endif
     }
 }

@@ -28,8 +28,8 @@ public class CousorSet : MonoBehaviour
     {
         if (Time.unscaledTime - lastTimeStickDown_ > 0.25f)
         {
-            float horizontal = Input.GetAxis("Horizontal");
-            float vertical = Input.GetAxis("Vertical");
+            //float horizontal = Input.GetAxis("Horizontal");
+            //float vertical = Input.GetAxis("Vertical");
             //if (Input.GetKeyDown("down") && Pos != nummenu)
             if (Input.GetAxisRaw("Vertical") < 0 && Pos != nummenu)
             {
