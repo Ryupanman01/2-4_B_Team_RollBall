@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 532781994244577278}
   - component: {fileID: 532781994244577279}
+  - component: {fileID: 8534259738049085809}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -52,5 +53,21 @@ MonoBehaviour:
   ClearText: {fileID: 0}
   ResultPanel: {fileID: 0}
   ReTryPanel: {fileID: 0}
+  PausePanel: {fileID: 0}
   GameBGM: {fileID: 0}
+  Game_Clear: {fileID: 0}
   CursorCheck: {fileID: 0}
+  flg: 0
+--- !u!114 &8534259738049085809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532781994244577265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc6fea5f50de2641bf09d6b87e7f13d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemBox: {fileID: 0}

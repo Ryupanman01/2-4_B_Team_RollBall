@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     //カウントダウン変数
-    private float countdown;
+    public static float countdown;
     private int count;
 
     //ゲームBGM管理変数
