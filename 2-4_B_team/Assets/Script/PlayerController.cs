@@ -78,9 +78,12 @@ public class PlayerController : MonoBehaviour
     {
         if(col.gameObject.tag == "Floor")
         {
-            ParticleSystem.EmissionModule emission = ps.emission;
-            moduleEnabled = true;
-            emission.enabled = moduleEnabled;
+            if (!moduleEnabled)
+            {
+                ParticleSystem.EmissionModule emission = ps.emission;
+                moduleEnabled = true;
+                emission.enabled = moduleEnabled;
+            }
             if (rb.velocity.magnitude > 0.3f)
             {
                 roll_flg = true;
@@ -103,7 +106,13 @@ public class PlayerController : MonoBehaviour
         {
             Roll_Ball.Stop();
             roll_flg = false;
+        }
+    }
 
+    void OnCollisionExit(Collision col)
+    {
+        if (col.gameObject.tag == "Floor")
+        {
             ParticleSystem.EmissionModule emission = ps.emission;
             moduleEnabled = false;
             emission.enabled = moduleEnabled;
