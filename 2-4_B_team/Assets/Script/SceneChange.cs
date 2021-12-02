@@ -13,6 +13,7 @@ public class SceneChange : MonoBehaviour
 	public AudioSource TitleBGM;
 	private bool titlebgm_flg;
 	public AudioSource CursorCheck;
+	public AudioSource CursorBack;
 
 
 	void Start()
@@ -31,10 +32,16 @@ public class SceneChange : MonoBehaviour
 		if(Input.GetKeyDown("joystick button 1"))
 		{
 			CursorCheck.Play();
-			Debug.Log("音を鳴らしたよ");
 			TitlePanel.SetActive(false);
 			SelectPanel.SetActive(true);
 			TitleBGM.Stop();
+		}
+		if(Input.GetKeyDown("joystick button 0"))
+        {
+			CursorBack.Play();
+			TitlePanel.SetActive(true);
+			SelectPanel.SetActive(false);
+			TitleBGM.Play();
 		}
 	}
 }
